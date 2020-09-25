@@ -94,14 +94,29 @@
                     <view key="view" contentMode="scaleToFill" id="37C-Vj-80p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xtv-oK-xYg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xtv-oK-xYg" firstAttribute="leading" secondItem="cRW-w5-rp2" secondAttribute="leading" id="0PL-zZ-6AT"/>
+                            <constraint firstItem="xtv-oK-xYg" firstAttribute="bottom" secondItem="cRW-w5-rp2" secondAttribute="bottom" id="Cz0-3B-0Fe"/>
+                            <constraint firstItem="xtv-oK-xYg" firstAttribute="top" secondItem="cRW-w5-rp2" secondAttribute="top" id="SQB-9p-lxV"/>
+                            <constraint firstItem="xtv-oK-xYg" firstAttribute="trailing" secondItem="cRW-w5-rp2" secondAttribute="trailing" id="lwy-TS-DYf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cRW-w5-rp2"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="yg9-6d-gku"/>
+                    <connections>
+                        <outlet property="tableView" destination="xtv-oK-xYg" id="Hsu-VF-wRz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1c-Ga-SpO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-619" y="846"/>
+            <point key="canvasLocation" x="-620.28985507246387" y="845.75892857142856"/>
         </scene>
         <!--投稿-->
         <scene sceneID="iWY-QK-cyn">

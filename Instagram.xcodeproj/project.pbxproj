@@ -20,6 +20,9 @@
 		5A479F3E251B6F4B00119B86 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A479F3D251B6F4B00119B86 /* TabBarViewController.swift */; };
 		5A479F40251B758400119B86 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A479F3F251B758400119B86 /* GoogleService-Info.plist */; };
 		5A479F42251BC83100119B86 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A479F41251BC83100119B86 /* Const.swift */; };
+		5A479F44251CBAC400119B86 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A479F43251CBAC400119B86 /* PostData.swift */; };
+		5A479F47251CBF6F00119B86 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A479F45251CBF6F00119B86 /* TableViewCell.swift */; };
+		5A479F48251CBF6F00119B86 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A479F46251CBF6F00119B86 /* TableViewCell.xib */; };
 		5A6B991971249D358F93C3AA /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 473A58C03F4F0446E98DE86F /* Pods_Instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		5A479F3D251B6F4B00119B86 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5A479F3F251B758400119B86 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A479F41251BC83100119B86 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		5A479F43251CBAC400119B86 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		5A479F45251CBF6F00119B86 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		5A479F46251CBF6F00119B86 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		DB2A4FD0DBE79CE7753AED0E /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +100,10 @@
 				5A479F39251B6AAD00119B86 /* PostViewController.swift */,
 				5A479F3B251B6ABD00119B86 /* SettingViewController.swift */,
 				5A479F3D251B6F4B00119B86 /* TabBarViewController.swift */,
+				5A479F45251CBF6F00119B86 /* TableViewCell.swift */,
+				5A479F46251CBF6F00119B86 /* TableViewCell.xib */,
 				5A479F41251BC83100119B86 /* Const.swift */,
+				5A479F43251CBAC400119B86 /* PostData.swift */,
 				5A479F25251B69E700119B86 /* Main.storyboard */,
 				5A479F28251B69E800119B86 /* Assets.xcassets */,
 				5A479F2A251B69E800119B86 /* LaunchScreen.storyboard */,
@@ -173,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A479F2C251B69E800119B86 /* LaunchScreen.storyboard in Resources */,
+				5A479F48251CBF6F00119B86 /* TableViewCell.xib in Resources */,
 				5A479F40251B758400119B86 /* GoogleService-Info.plist in Resources */,
 				5A479F29251B69E800119B86 /* Assets.xcassets in Resources */,
 				5A479F27251B69E700119B86 /* Main.storyboard in Resources */,
@@ -233,6 +243,8 @@
 				5A479F36251B6A8300119B86 /* HomeViewController.swift in Sources */,
 				5A479F3A251B6AAD00119B86 /* PostViewController.swift in Sources */,
 				5A479F3C251B6ABD00119B86 /* SettingViewController.swift in Sources */,
+				5A479F44251CBAC400119B86 /* PostData.swift in Sources */,
+				5A479F47251CBF6F00119B86 /* TableViewCell.swift in Sources */,
 				5A479F34251B6A6800119B86 /* LoginViewController.swift in Sources */,
 				5A479F20251B69E700119B86 /* AppDelegate.swift in Sources */,
 				5A479F22251B69E700119B86 /* SceneDelegate.swift in Sources */,
