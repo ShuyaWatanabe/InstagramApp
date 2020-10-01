@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1c-Ga-SpO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-620.28985507246387" y="845.75892857142856"/>
+            <point key="canvasLocation" x="-657" y="846"/>
         </scene>
         <!--投稿-->
         <scene sceneID="iWY-QK-cyn">
@@ -294,6 +294,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LjI-xn-c2T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1433" y="846"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="rvn-bP-j9i">
+            <objects>
+                <viewController storyboardIdentifier="Comment" id="nqE-uw-dO9" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z3O-7K-ggb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Qq-hd-d2o">
+                                <rect key="frame" x="10" y="64" width="339" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwA-GK-D65">
+                                <rect key="frame" x="359" y="64" width="45" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="771-v7-FfK"/>
+                                    <constraint firstAttribute="width" constant="45" id="cgH-Zk-GUv"/>
+                                </constraints>
+                                <state key="normal" title="投稿" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="postCommentButton:" destination="nqE-uw-dO9" eventType="touchUpInside" id="IHy-8c-pUD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7wc-ZJ-9xk" firstAttribute="trailing" secondItem="iwA-GK-D65" secondAttribute="trailing" constant="10" id="9by-qJ-L9O"/>
+                            <constraint firstItem="iwA-GK-D65" firstAttribute="leading" secondItem="3Qq-hd-d2o" secondAttribute="trailing" constant="10" id="JZs-Ye-rXk"/>
+                            <constraint firstItem="3Qq-hd-d2o" firstAttribute="top" secondItem="7wc-ZJ-9xk" secondAttribute="top" constant="20" id="Tzf-Mx-tX9"/>
+                            <constraint firstItem="3Qq-hd-d2o" firstAttribute="leading" secondItem="7wc-ZJ-9xk" secondAttribute="leading" constant="10" id="wPc-8Y-PrK"/>
+                            <constraint firstItem="iwA-GK-D65" firstAttribute="top" secondItem="7wc-ZJ-9xk" secondAttribute="top" constant="20" id="wVT-bh-EnK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7wc-ZJ-9xk"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="3Qq-hd-d2o" id="McQ-JK-J1t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YwL-7P-BCZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166.66666666666669" y="1597.7678571428571"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="nkN-sR-gVq">

@@ -16,6 +16,9 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var commentLabel: UILabel!
+    
     
 
     override func awakeFromNib() {
@@ -30,18 +33,18 @@ class TableViewCell: UITableViewCell {
     }
     
     //　PostDateの内容をセルに表示
-    func setPostDate(_ postDate: PostData) {
+    func setPostData(_ postData: PostData) {
         //　画像の表示
         postImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postDate.id + ".jpg")
+        let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpg")
         postImageView.sd_setImage(with: imageRef)
         
         // キャプションを表示
-        self.captionLabel.text = "\(postDate.name!) : \(postDate.caption!)"
+        self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
         
         //　日時の表示
         self.dateLabel.text = ""
-        if let date = postDate.date {
+        if let date = postData.date {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm"
             let dateString = formatter.string(from: date)
@@ -49,17 +52,24 @@ class TableViewCell: UITableViewCell {
         }
         
         //　いいね数の表示
-        let likeNumber = postDate.likes.count
+        let likeNumber = postData.likes.count
         likeLabel.text = "\(likeNumber)"
         
         //　いいねボタンの表示
-        if postDate.isLiked {
+        if postData.isLiked {
             let buttonImage = UIImage(named: "like_exist")
             self.likeButton.setImage(buttonImage, for: .normal)
         } else {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
-    }
+        
+        let comments: [String] = postData.comments
+        let commentString: String = comments.joined(separator: "\n")
+        self.commentLabel.text = "\(commentString)"
+        
+            
+        
     
+}
 }

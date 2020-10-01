@@ -29,6 +29,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //　カスタムセルを登録
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
+        
+        tableView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,8 +54,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     //　取得したdocumentをもとにPostdateを作成し、postArrayの配列にする
                     self.postArray = querySnapshot!.documents.map { document in
                         print("DEBUG_PRINT: document取得　\(document.documentID)")
-                        let postDate = PostData(document: document)
-                        return postDate
+                        let postData = PostData(document: document)
+                        return postData
                     }
                     //　TableViewの表示を更新する
                     self.tableView.reloadData()
@@ -79,10 +82,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
-        cell.setPostDate(postArray[indexPath.row])
+        cell.setPostData(postArray[indexPath.row])
         
         //　セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action: #selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        
+        cell.commentButton.addTarget(self, action: #selector(handleCommentButton(_:forEvent:)), for: .touchUpInside)
         
         return cell
     }
@@ -96,13 +101,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let indexPath = tableView.indexPathForRow(at: point)
         
         //　配列からタップされたインデックスのデータを取り出す
-        let postDate = postArray[indexPath!.row]
+        let postData = postArray[indexPath!.row]
         
         // likesを更新する
         if let myid = Auth.auth().currentUser?.uid {
             // 更新データを作成する
             var updateValue: FieldValue
-            if postDate.isLiked {
+            if postData.isLiked {
                 //　すでにいいねをしている場合は、いいね解除のためmyidを取り除く更新データを作成
                 updateValue = FieldValue.arrayRemove([myid])
             } else {
@@ -111,9 +116,31 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
             // likesに更新データを書き込む
-            let postRef = Firestore.firestore().collection(Const.PostPath).document(postDate.id)
+            let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
             postRef.updateData(["likes": updateValue])
         }
+    }
+    
+    @objc func handleCommentButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: commentボタンがタップされました")
+        
+        //　タップされたセルのインデックスを求める
+              let touch = event.allTouches?.first
+              let point = touch!.location(in: self.tableView)
+              let indexPath = tableView.indexPathForRow(at: point)
+        let postData = postArray[indexPath!.row]
+        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+        
+        let storyboard = self.storyboard!
+        
+        let commentViewController = storyboard.instantiateViewController(withIdentifier: "Comment") as! CommentViewController
+        
+        
+        commentViewController.postRef = postRef
+        
+        present(commentViewController, animated: true ,completion: nil)
+        
+           
     }
     
 
